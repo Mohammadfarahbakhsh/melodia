@@ -21,7 +21,8 @@ You can check out the live demo of the website [here](https://melodia-pi.vercel.
 * Clean and modern UI
 
 ```bash
-git clone https://github.com/Mohammadfarahbakhsh/melodia
-bun i
+* git clone https://github.com/Mohammadfarahbakhsh/melodia
+
+* bun i
 ```
 
