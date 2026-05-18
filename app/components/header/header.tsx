@@ -1,6 +1,5 @@
-import { Home, Library, Search, Thermometer, ThermometerSun, Users } from 'lucide-react';
+import { Home, Library, Search, Users } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
 import { Github } from '../../../public/icons/github';
 
 const Header = () => {
