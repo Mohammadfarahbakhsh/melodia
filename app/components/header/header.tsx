@@ -1,11 +1,15 @@
+"use client"
 import { Home, Library, Search, Users } from 'lucide-react';
 import Link from 'next/link';
 import { Github } from '../../../public/icons/github';
+import { useMobile } from '@/app/hooks/useMobile';
 
 const Header = () => {
+  const isMobile=useMobile()
   return (
     <div className='flex justify-between items-center p-8'>
-      <div className='flex gap-5'>
+        {!isMobile && (      
+          <div className='flex gap-5'>
         <Link href="">
           <Users className='hover:drop-shadow-[0_0_10px_#98EF00] hover:fill-[#96EF00] ' />
         </Link>
@@ -16,11 +20,13 @@ const Header = () => {
         >
           <Github />
         </Link>
-      </div>
+      </div>)}
+
 
       <h1 className='text-white hover:text-[#96EF00] hover:drop-shadow-[0_0_10px_#98EF00] text-5xl'>ملودیا</h1>
 
-      <div className='flex gap-5'>
+      {!isMobile && (
+          <div className='flex gap-5'>
         <Link href="./Library" className="p-2 rounded-md">
           <Library className="text-white hover:text-[#98EF00] transition hover:drop-shadow-[0_0_10px_#98EF00]" />
         </Link>
@@ -37,6 +43,7 @@ const Header = () => {
 
         </Link>
       </div>
+      )}
     </div>
   );
 };
