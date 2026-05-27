@@ -10,6 +10,7 @@ const Content = () => {
         retry: 1,
     })
 
+
     if (isLoading) return (
         <div className="mx-auto w-full max-w-sm rounded-md border border-blue-300 p-4">
             <div className="flex animate-pulse space-x-4">
