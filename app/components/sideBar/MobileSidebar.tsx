@@ -31,7 +31,7 @@ const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
       {!isOpen && (
         <Menu
           onClick={() => setIsOpen(true)}
-          className="fixed top-11 w-7 h-7 right-6 z-30 p-2 bg-neutral-900 text-white rounded-md md:hidden"
+          className="fixed top-7 w-7 h-7 right-6 z-30 p-2 bg-neutral-900 text-white rounded-md md:hidden"
         >
           ☰ منو
         </Menu>
