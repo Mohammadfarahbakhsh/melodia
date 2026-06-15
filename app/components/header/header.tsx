@@ -99,7 +99,9 @@ const Header = () => {
                 label="گیتهاب"
                 icon={
                   <div className="w-[19px] h-[19px] flex items-center justify-center">
+                   <Link href="">
                     <Github />
+                   </Link>
                   </div>
                 }
               />
