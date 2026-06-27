@@ -1,21 +1,11 @@
-const Options = () => {
-    const options = [
-        { id: 1, label: "کتاب صوتی" },
-        { id: 2, label: "پادکست" },
-        { id: 3, label: "موسیقی" },
-        { id: 4, label: "جهان" },
-        { id: 5, label: "ایران" },
-        { id: 6, label: "همه" }
-    ];
-
-    return (
-        <div className='w-full overflow-x-auto overflow-y-hidden scrollbar-hide'>
-            <div className='flex justify-center md:justify-end items-center gap-2 md:gap-4 lg:gap-6 px-2 md:px-6 py-2 md:py-4 min-w-max'>
-                {options.map((option) => (
-                    <button
-                        key={option.id}
-                        className='
-                            hover:bg-[#98Ef00] 
+type ButtonProps={
+    variant:"contained"|"outline"|"text"
+}
+const Button:React.FC<ButtonProps> = ({variant}) => {
+    switch (variant) {
+        case "contained" :
+            return <div>
+                <button className="hover:bg-[#98Ef00] 
                             hover:transition 
                             hover:delay-75 
                             text-[#ffffff] 
@@ -44,14 +34,15 @@ const Options = () => {
                             items-center
                             justify-center
                             text-center
-                        '
-                    >
-                        {option.label}
-                    </button>
-                ))}
+                        '">
+
+                </button>
             </div>
-        </div>
-    );
+           
+        case "outline":
+        default:
+            break;
+    }
 }
 
-export default Options
+export default Button;
