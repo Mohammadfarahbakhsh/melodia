@@ -1,7 +1,7 @@
 
 import Landing from "./components/landing/landing";
 
-const Page = () => {
+const Page = () =>{
   return (<div>
     <Landing/>
   </div>

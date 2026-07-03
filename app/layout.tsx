@@ -33,14 +33,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        
+
+
         <MobileSidebar>
+        
         <Header/>
         </MobileSidebar>
 
         <Query>
           {children}
         </Query>
+
       </body>
     </html>
   );
