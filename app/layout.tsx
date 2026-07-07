@@ -1,5 +1,6 @@
 // import { Geist, Geist_Mono, Vazirmatn } from "next/font/google";
 import './globals.css';
+import localFont from "next/font/local";
 // import { Provider } from "react-redux";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Query from "./components/homeContent/query";
@@ -18,6 +19,12 @@ import { Metadata } from 'next';
 //   variable: "--font-geist-mono",
 //   subsets: ["latin"],
 // });
+const arad = localFont({
+  src: "../public/font/AradVF.woff2",
+  variable: "--font-arad",
+  display: "swap",
+
+});
 
 export const metadata:Metadata={
   icons:{
@@ -32,7 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body
+      className={`${arad.className} antialiased`}
+      >
 
 
         <MobileSidebar>
@@ -48,3 +57,4 @@ export default function RootLayout({
     </html>
   );
 }
+

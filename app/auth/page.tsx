@@ -3,7 +3,9 @@ import React from 'react';
 const Page = () => {
     return (
         <div>
-        غعبلنبغنبغن
+        <div className=' justify-center flex hover:shadow-green-500 '>
+vcv
+        </div>
         </div>
     );
 }
