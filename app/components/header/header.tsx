@@ -42,10 +42,8 @@ const Header = () => {
 
   return (
     <header className="relative">
-      {/* Glass bar */}
       <div className="relative flex justify-between items-center px-8 py-5 backdrop-blur-md bg-black/30">
 
-        {/* Left — social links (desktop) */}
         {!isMobile && (
           <div className="flex items-center gap-1">
             <NavIcon href="">
@@ -82,11 +80,9 @@ const Header = () => {
           </div>
         )}
 
-        {/* Mobile — sidebar trigger */}
         {isMobile && (
           <MobileSidebar>
             <div className="flex flex-col gap-1 px-3 py-5">
-              {/* Sidebar header */}
               <div className="px-4 pb-4 mb-2 border-b border-white/5">
                 <p className="text-[#98EF00]/60 text-xs tracking-widest uppercase font-medium">منو</p>
               </div>

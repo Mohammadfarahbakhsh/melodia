@@ -1,48 +1,83 @@
-type ButtonProps={
-    variant:"contained"|"outline"|"text"
-}
-const Button:React.FC<ButtonProps> = ({variant}) => {
-    switch (variant) {
-        case "contained" :
-            return <div>
-                <button className="hover:bg-[#98Ef00] 
-                            hover:transition 
-                            hover:delay-75 
-                            text-[#ffffff] 
-                            hover:text-[#070708] 
-                            rounded-full 
-                            bg-[#232329]
-                            /* Responsive sizes */
-                            w-auto 
-                            min-w-17.5 
-                            md:min-w-22.5 
-                            lg:w-24
-                            h-7 
-                            md:h-8 
-                            lg:h-8
-                            px-3 
-                            md:px-4
-                            text-xs 
-                            md:text-base 
-                            lg:text-lg
-                            font-medium
-                            whitespace-nowrap
-                            shrink-0
-                            transition-all
-                            duration-200
-                            flex
-                            items-center
-                            justify-center
-                            text-center
-                        '">
+import React from "react";
 
-                </button>
-            </div>
-           
-        case "outline":
-        default:
-            break;
-    }
-}
+type ButtonProps = {
+  variant: "contained" | "outline" | "text";
+  children?: React.ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
+}&React.ButtonHTMLAttributes<HTMLButtonElement>
+
+const baseClasses = `
+  rounded-full
+  text-xs
+  md:text-base
+  lg:text-lg
+  font-medium
+  whitespace-nowrap
+  shrink-0
+  transition-all
+  duration-200
+  flex
+  items-center
+  justify-center
+  text-center
+`;
+
+const Button: React.FC<ButtonProps> = ({ variant, children, disabled }) => {
+  switch (variant) {
+    case "contained":
+      return (
+        <button
+          disabled={disabled}
+          className={`${baseClasses}
+            bg-[#232329]
+            text-[#ffffff]
+            hover:bg-[#98Ef00]
+            hover:text-[#070708]
+            hover:transition
+            hover:delay-75`}
+        >
+          {children}
+        </button>
+      );
+
+    case "outline":
+      return (
+        <button
+          disabled={disabled}
+          className={`${baseClasses}
+            bg-transparent
+            border
+            border-[#232329]
+            text-[#232329]
+            hover:bg-[#98Ef00]
+            hover:border-[#98Ef00]
+            hover:text-[#070708]
+            hover:transition
+            hover:delay-75`}
+        >
+          {children}
+        </button>
+      );
+
+    case "text":
+      return (
+        <button
+          disabled={disabled}
+          className={`${baseClasses}
+            bg-transparent
+            text-[#232329]
+            hover:text-[#98Ef00]
+            hover:transition
+            hover:delay-75`}
+        >
+          {children}
+        </button>
+      );
+
+    default:
+      return null;
+  }
+};
 
 export default Button;

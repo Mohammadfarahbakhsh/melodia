@@ -1,11 +1,10 @@
 import React from 'react';
+import Login from './Login';
 
 const Page = () => {
     return (
         <div>
-        <div className=' justify-center flex hover:shadow-green-500 '>
-vcv
-        </div>
+            <Login/>
         </div>
     );
 }
