@@ -49,11 +49,11 @@ const Header = () => {
             <NavIcon href="">
               <Users size={19} />
             </NavIcon>
-            <NavIcon href="">
-              <Github />
-            </NavIcon>
             <NavIcon href="/Info">
               <Info/>
+            </NavIcon>
+            <NavIcon href="">
+              fff
             </NavIcon>
           </div>
         )}

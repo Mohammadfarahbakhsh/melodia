@@ -33,7 +33,6 @@ const Landing = () => {
         ))}
       </div>
 
-      {/* محتوای بالا */}
       <div className="relative z-10 flex flex-col items-center gap-6 pt-8">
         <Image
           src="/LabelMelodia.svg"
@@ -52,7 +51,12 @@ const Landing = () => {
                  موسیقی رو جور دیگه‌ای تجربه کن
         </p>
 
-        <div className="mt-2 h-px w-24 bg-linear-to-r from-transparent via-[#98EF00]/60 to-transparent" />
+        <div className="mt-2 h-px w-32 shadow-[#98EF00] shadow-2xs bg-[#98EF00]
+        
+        
+        
+        " />
+        
       </div>
 
       <button

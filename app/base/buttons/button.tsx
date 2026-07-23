@@ -23,7 +23,7 @@ const baseClasses = `
   text-center
 `;
 
-const Button: React.FC<ButtonProps> = ({ variant, children, disabled }) => {
+ const Button: React.FC<ButtonProps> = ({ variant, children, disabled, className, ...rest }) => {
   switch (variant) {
     case "contained":
       return (
@@ -35,12 +35,13 @@ const Button: React.FC<ButtonProps> = ({ variant, children, disabled }) => {
             hover:bg-[#98Ef00]
             hover:text-[#070708]
             hover:transition
-            hover:delay-75`}
+            hover:delay-75
+            ${className ?? ""}`}
+          {...rest}
         >
           {children}
         </button>
       );
-
     case "outline":
       return (
         <button
@@ -54,12 +55,13 @@ const Button: React.FC<ButtonProps> = ({ variant, children, disabled }) => {
             hover:border-[#98Ef00]
             hover:text-[#070708]
             hover:transition
-            hover:delay-75`}
+            hover:delay-75
+            ${className ?? ""}`}
+          {...rest}
         >
           {children}
         </button>
       );
-
     case "text":
       return (
         <button
@@ -69,15 +71,15 @@ const Button: React.FC<ButtonProps> = ({ variant, children, disabled }) => {
             text-[#232329]
             hover:text-[#98Ef00]
             hover:transition
-            hover:delay-75`}
+            hover:delay-75
+            ${className ?? ""}`}
+          {...rest}
         >
           {children}
         </button>
       );
-
     default:
       return null;
   }
 };
-
-export default Button;
+export default Button
