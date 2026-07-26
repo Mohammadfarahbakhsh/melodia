@@ -17,10 +17,10 @@ const Options = () => {
                             hover:bg-[#98Ef00] 
                             hover:transition 
                             hover:delay-75 
-                            text-[#ffffff] 
-                            hover:text-[#070708] 
+                            text-black 
+                            hover:opacity-75
                             rounded-full 
-                            bg-[#232329]
+                            bg-[#98EF00]
                             /* Responsive sizes */
                             w-auto 
                             min-w-17.5 

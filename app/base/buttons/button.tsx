@@ -30,10 +30,9 @@ const baseClasses = `
         <button
           disabled={disabled}
           className={`${baseClasses}
-            bg-[#232329]
-            text-[#ffffff]
-            hover:bg-[#98Ef00]
-            hover:text-[#070708]
+            bg-[#98EF00]
+            text-black
+            hover:opacity-90
             hover:transition
             hover:delay-75
             ${className ?? ""}`}
@@ -49,7 +48,7 @@ const baseClasses = `
           className={`${baseClasses}
             bg-transparent
             border
-            border-[#232329]
+            border-[#98EF00]
             text-[#232329]
             hover:bg-[#98Ef00]
             hover:border-[#98Ef00]
