@@ -1,18 +1,10 @@
-"use client"
-import { Home, Info, Library, Search, Users } from 'lucide-react';
-import Link from 'next/link';
-import { Github } from '../../../public/icons/github';
-import { useMobile } from '@/app/hooks/useMobile';
-import MobileSidebar from '../sideBar/MobileSidebar';
-
-const NavIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <Link href={href} className="group relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 hover:bg-white/5">
-    <div className="text-white/50 group-hover:text-[#98EF00] transition-all duration-300 group-hover:drop-shadow-[0_0_8px_#98EF0088]">
-      {children}
-    </div>
-    <span className="absolute inset-0 rounded-xl ring-0 group-hover:ring-1 ring-[#98EF00]/20 transition-all duration-300" />
-  </Link>
-);
+"use client";
+import { Home, Library, Search, Users } from "lucide-react";
+import Link from "next/link";
+import { useMobile } from "@/app/hooks/useMobile";
+import Button from "@/app/base/buttons/button";
+import Image from "next/image";
+import MobileSidebar from "../sideBar/MobileSidebar";
 
 const MobileNavItem = ({
   href,
@@ -36,81 +28,76 @@ const MobileNavItem = ({
     </div>
   </Link>
 );
-
 const Header = () => {
   const isMobile = useMobile();
-
+  const isLogin: boolean = false;
   return (
-    <header className="relative">
-      <div className="relative flex justify-between items-center px-8 py-5 backdrop-blur-md bg-black/30">
-
+    <div className="relative">
+      <div className="relative flex justify-between items-center px-8 py-5 backdrop-blur-md ">
         {!isMobile && (
           <div className="flex items-center gap-1">
-            <NavIcon href="">
+            {!isLogin ? (
+              <Link href="/auth">
+                <Button
+                  variant="contained"
+                  className="text-[13px] p-1 pr-7 pl-7  whitespace-nowrap"
+                >
+                  ورود
+                </Button>
+              </Link>
+            ) : (
               <Users size={19} />
-            </NavIcon>
-            <NavIcon href="/Info">
-              <Info/>
-            </NavIcon>
-            <NavIcon href="">
-              fff
-            </NavIcon>
+            )}
           </div>
         )}
 
-        {/* Logo */}
-        <Link href="/" className="group select-none">
-          <h1 className="text-white text-4xl tracking-wide font-semibold transition-all duration-500 group-hover:text-[#98EF00] group-hover:drop-shadow-[0_0_18px_#98EF0099]">
-            ملودیا
-          </h1>
-        </Link>
-
-        {/* Right — nav icons (desktop) */}
-        {!isMobile && (
-          <div className="flex items-center gap-1">
-            <NavIcon href="./Library">
-              <Library size={19} />
-            </NavIcon>
-            <NavIcon href="">
-              <Search size={19} />
-            </NavIcon>
-            <NavIcon href="/">
-              <Home size={19} />
-            </NavIcon>
-          </div>
-        )}
+        <div className="flex items-center gap-7">
+          <input
+            dir="rtl"
+            className="p-3 rounded-2xl border border-[#98EF00] pr-5 pl-20 text-right w-full min-w-[320px]
+    focus:outline-none focus:ring-2 focus:ring-[#98EF00] focus:border-[#98EF00]"
+            type="text"
+            placeholder="چه چیزی میخواهید گوش کنید"
+          />
+          <Link href="/" className="group select-none">
+            <Image
+              src="/LabelMelodia.svg"
+              width={37}
+              height={37}
+              alt="لوگوی ملودیا"
+            />
+          </Link>
+        </div>
 
         {isMobile && (
           <MobileSidebar>
             <div className="flex flex-col gap-1 px-3 py-5">
               <div className="px-4 pb-4 mb-2 border-b border-white/5">
-                <p className="text-[#98EF00]/60 text-xs tracking-widest uppercase font-medium">منو</p>
+                <p className="text-[#98EF00]/60 text-xs tracking-widest uppercase font-medium">
+                  منو
+                </p>
               </div>
 
               <MobileNavItem href="/" label="خانه" icon={<Home size={19} />} />
               <MobileNavItem href="" label="سرچ" icon={<Search size={19} />} />
-              <MobileNavItem href="" label="پروفایل" icon={<Users size={19} />} />
               <MobileNavItem
                 href=""
-                label="گیتهاب"
-                icon={
-                  <div className="w-[19px] h-[19px] flex items-center justify-center">
-                   <Link href="">
-                    <Github />
-                   </Link>
-                  </div>
-                }
+                label="پروفایل"
+                icon={<Users size={19} />}
               />
-              <MobileNavItem href="./Library" label="کتابخانه" icon={<Library size={19} />} />
+              <MobileNavItem
+                href="./Library"
+                label="کتابخانه"
+                icon={<Library size={19} />}
+              />
             </div>
           </MobileSidebar>
         )}
       </div>
 
-      {/* Signature: subtle bottom glow line */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98EF00]/30 to-transparent" />
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98EF00]/10 to-transparent mt-[1px]" />
-    </header>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98EF00] to-transparent" />
+      
+    </div>
   );
 };
 

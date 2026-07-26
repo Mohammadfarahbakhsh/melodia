@@ -2,7 +2,7 @@ import React from "react";
 
 const Google = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={50} height={50} viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" width={35} height={35} viewBox="0 0 24 24">
       <defs>
         <radialGradient
           id="prefix__b"

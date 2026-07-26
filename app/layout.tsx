@@ -5,9 +5,9 @@ import localFont from "next/font/local";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Query from "./components/homeContent/query";
 // import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import MobileSidebar from "./components/sideBar/MobileSidebar";
-import Header from "./components/header/header";
 import { Metadata } from 'next';
+import ThemeProvider from './providers/theme-provider';
+
 
 
 // const geistSans = Geist({
@@ -38,19 +38,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-      className={`${arad.className} antialiased`}
-      >
-
-
-        <MobileSidebar>
-        
-        <Header/>
-        </MobileSidebar>
+    <html lang="fa"  suppressHydrationWarning>
+      <body className={`${arad.className} antialiased`}>
 
         <Query>
+        <ThemeProvider>
           {children}
+
+        </ThemeProvider>
         </Query>
 
       </body>
@@ -58,3 +53,7 @@ export default function RootLayout({
   );
 }
 
+
+{/* <MobileSidebar>
+  
+  </MobileSidebar> */}

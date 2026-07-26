@@ -1,11 +1,10 @@
 const Options = () => {
     const options = [
-        { id: 1, label: "کتاب صوتی" },
-        { id: 2, label: "پادکست" },
-        { id: 3, label: "موسیقی" },
-        { id: 4, label: "جهان" },
-        { id: 5, label: "ایران" },
-        { id: 6, label: "همه" }
+        { id: 1, label: "موسیقی" },
+        {id:5,label:"پادکست"},
+        { id: 2, label: "جهان" },
+        { id: 3, label: "ایران" },
+        { id: 4, label: "همه" }
     ];
 
     return (

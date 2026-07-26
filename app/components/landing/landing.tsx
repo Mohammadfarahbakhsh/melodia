@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 
 const Landing = () => {
   const router = useRouter();
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   const handleClick = () => {
-    router.push(isLoggedIn ? "/home" : "/auth");
+    router.push(isLoggedIn ? "/home" : "");
   };
 
   return (
