@@ -1,12 +1,10 @@
 "use client";
 import Button from "@/app/base/buttons/button";
-import { Github } from "@/public/icons/github";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Info, Library, Moon, Sun } from "lucide-react";
+import { Library } from "lucide-react";
 import Image from "next/image";
-import React, { ReactNode, useContext } from "react";
-
+import Link from "next/link";
 const Content = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["users"],
@@ -48,12 +46,6 @@ const Content = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-8 p-8">
-      <div>
-        <p className="mt-2 text-muted-foreground">
-          به پنل مدیریت ملودیا خوش اومدی
-        </p>
-      </div>
-
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div
@@ -80,25 +72,36 @@ const Content = () => {
           >
             <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#98EF00]/30 blur-2xl transition-all group-hover:bg-[#98EF00]/20" />
 
-            <div className=" flex items-center">
+            <div className="flex justify-end">
               <div className="rounded-xl bg-blue-500/10 p-3 text-[#98EF00]">
                 <Library size={22} />
               </div>
             </div>
 
-            <div className=" text-right">
-              <Image className="place-self-end rounded-2xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6pc0RyGyFThsT5Oo_NdtxU6KBzZNSEj3qNdpxGXkZaQ&s=10" width={100} height={100} alt="عکس خواننده"/>
+            <div className="mt-5 flex flex-col items-center text-center">
+              <Image
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6pc0RyGyFThsT5Oo_NdtxU6KBzZNSEj3qNdpxGXkZaQ&s=10"
+                width={110}
+                height={110}
+                alt="عکس خواننده"
+                className="h-28 w-28 rounded-2xl border object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
+              />
 
-              <p className="mt-3 text-sm text-muted-foreground">
-                خانوم هایده یکی بهترین خوانندگان زن ایران و جهان
+              <h2 className="mt-4 text-lg font-semibold">هایده</h2>
+
+              <p className="mt-2 px-2 text-center text-sm leading-6 text-muted-foreground">
+                خانوم هایده یکی از بهترین خوانندگان زن ایران و جهان است.
               </p>
             </div>
 
-            <div className="mt-6 flex items-center justify-between">
-              <Button variant="contained" className="rounded-lg bg-[#98EF00] px-2 py-1 text-sm font-medium text-black transition hover:opacity-75">
+            <Link href="/Library">
+              <Button
+                variant="contained"
+                className="mt-6 w-full rounded-xl bg-[#98EF00] py-2 font-medium text-black transition-all duration-300 hover:scale-[1.02] hover:opacity-80"
+              >
                 مشاهده
               </Button>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
