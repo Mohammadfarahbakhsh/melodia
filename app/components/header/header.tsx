@@ -1,5 +1,5 @@
 "use client";
-import { Home, Library, Search, Users } from "lucide-react";
+import { Home, Library, Plus, Search, Users } from "lucide-react";
 import Link from "next/link";
 import { useMobile } from "@/app/hooks/useMobile";
 import Button from "@/app/base/buttons/button";
@@ -35,7 +35,7 @@ const Header = () => {
     <div className="relative">
       <div className="relative flex justify-between items-center px-8 py-5 backdrop-blur-md ">
         {!isMobile && (
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-5">
             {!isLogin ? (
               <Link href="/auth">
                 <Button
@@ -48,6 +48,12 @@ const Header = () => {
             ) : (
               <Users size={19} />
             )}
+              <Link href="/library">
+              <Button className="p-1 pr-7 pl-7" variant="outline">
+              کتابخانه
+              </Button>
+              </Link>
+              {/* <Plus/> */}
           </div>
         )}
 

@@ -49,7 +49,7 @@ const baseClasses = `
             bg-transparent
             border
             border-[#98EF00]
-            text-[#232329]
+            text-[#98EF00]
             hover:bg-[#98Ef00]
             hover:border-[#98Ef00]
             hover:text-[#070708]
