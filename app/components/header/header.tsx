@@ -2,9 +2,12 @@
 import { Home, Library, Plus, Search, Users } from "lucide-react";
 import Link from "next/link";
 import { useMobile } from "@/app/hooks/useMobile";
-import Button from "@/app/base/buttons/button";
+import Button from "@/app/components/base/buttons/button";
 import Image from "next/image";
 import MobileSidebar from "../sideBar/MobileSidebar";
+import Card from "../card/card";
+import { createPortal } from "react-dom";
+import { useCallback, useState } from "react";
 
 const MobileNavItem = ({
   href,
@@ -31,6 +34,14 @@ const MobileNavItem = ({
 const Header = () => {
   const isMobile = useMobile();
   const isLogin: boolean = false;
+  const [showCard, setShowCard] = useState(false);
+  const HandelOpenCard = useCallback(() => {
+    setShowCard(true);
+  }, []);
+  const HandelCloseCard = useCallback(() => {
+    setShowCard(false);
+  }, []);
+
   return (
     <div className="relative">
       <div className="relative flex justify-between items-center px-8 py-5 backdrop-blur-md ">
@@ -48,14 +59,65 @@ const Header = () => {
             ) : (
               <Users size={19} />
             )}
-              <Link href="/library">
+            <Link href="/library">
               <Button className="p-1 pr-7 pl-7" variant="outline">
-              کتابخانه
+                پادکست/کتابخانه
               </Button>
-              </Link>
-              {/* <Plus/> */}
+            </Link>
+            <div className="">
+              <button
+                onClick={HandelOpenCard}
+                className="
+      group
+      flex
+      items-center
+      justify-center
+        p-2
+
+      rounded-full
+
+      bg-[#98EF00]
+      text-black
+
+      shadow-[0_0_25px_rgba(152,239,0,0.45)]
+
+      transition-all
+      duration-300
+
+      hover:scale-110
+      hover:rotate-90
+      hover:shadow-[0_0_40px_rgba(152,239,0,0.7)]
+
+      active:scale-95
+    "
+              >
+                <Plus
+                  size={24}
+                  strokeWidth={2.8}
+                  className="transition-transform duration-300"
+                />
+              </button>
+            </div>
           </div>
         )}
+        {showCard &&
+          typeof document !== "undefined" &&
+          createPortal(
+            <div
+              className="fixed inset-0 z-[999] flex items-center justify-center bg-black/50"
+              onClick={HandelCloseCard}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <Card />
+              </div>
+            </div>,
+            document.body,
+          )}
+
+        {/* <div 
+        className="fixed inset-0 bg-black/50 z-40" 
+        onClick={() => setShowCard(false)} 
+      /> */}
 
         <div className="flex items-center gap-7">
           <input
@@ -101,8 +163,7 @@ const Header = () => {
         )}
       </div>
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98EF00] to-transparent" />
-      
+      <div className="h-px w-full bg-linear-to-r from-transparent via-[#98EF00] to-transparent" />
     </div>
   );
 };

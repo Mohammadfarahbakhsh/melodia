@@ -1,10 +1,10 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export function useMobile(breakpoint: number = 768): boolean {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  useEffect(() => {
+  useCallback(() => {
     if (typeof window === 'undefined') return;
 
     const checkMobile = (): void => {

@@ -1,24 +1,37 @@
 import Link from "next/link";
-import Button from "./base/buttons/button";
+import Button from "./components/base/buttons/button";
 
 export default function NotFound() {
   return (
-    <div className="flex w-auto  h-44 shadow-lg place-self-center flex-col rounded-lg  text-[#98EF00]">
-      <div className="pt-40">
-        <div className="border flex items-center flex-col border-[#98EF00] min-w-3xl min-h-[60vh]">
+    <div
+      dir="rtl"
+      className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-6"
+    >
+      <div className="flex w-full max-w-xl flex-col items-center rounded-2xl border border-[#98EF00]/30 bg-gradient-to-b from-[#0f1400] to-black px-8 py-16 text-center shadow-[0_0_60px_-15px_rgba(152,239,0,0.35)]">
+        <span className="mb-4 text-xs font-medium tracking-[0.3em] text-[#98EF00]/60">
+          خطا
+        </span>
 
-        <h1 className="pt-7 text-5xl">ارور ۴۰۴</h1>
-    <div>
-              <p>صفحه مورد نظر یافت نشد</p>
-        <Button className="p-2" variant="outline">
-          صفحه اصلی
-        </Button>
-    </div>
-        </div>
+        <h1 className="text-8xl font-bold text-[#98EF00] drop-shadow-[0_0_25px_rgba(152,239,0,0.45)]">
+          ۴۰۴
+        </h1>
+
+        <div className="my-6 h-px w-16 bg-[#98EF00]/30" aria-hidden="true" />
+
+        <p className="text-lg text-[#98EF00]/90">صفحه مورد نظر یافت نشد</p>
+        <p className="mt-2 max-w-sm text-sm text-[#98EF00]/50">
+          ممکن است آدرس را اشتباه وارد کرده باشید یا این صفحه حذف شده باشد
+        </p>
+
+        <Link href="/home" className="mt-8">
+          <Button
+            className="px-6 py-2.5 transition-colors duration-200 hover:bg-[#98EF00]/10"
+            variant="outline"
+          >
+            بازگشت به صفحه اصلی
+          </Button>
+        </Link>
       </div>
     </div>
   );
-}
-{
-  /* <Link className='place-self-center' href="/">صفحه اصلی</Link> */
 }

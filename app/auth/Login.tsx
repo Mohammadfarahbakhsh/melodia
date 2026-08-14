@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
-import Button from "../base/buttons/button";
-import { Link } from "lucide-react";
+import Button from "../components/base/buttons/button";
 import { Github } from "@/public/icons/github";
 import Google from "@/public/icons/google";
 import { useRouter } from "next/navigation";
-
 const Login = () => {
   const router = useRouter();
   const handelLogin = () => {
@@ -67,5 +65,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

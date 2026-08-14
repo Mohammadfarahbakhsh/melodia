@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/app/base/buttons/button";
+import Button from "@/app/components/base/buttons/button";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Library } from "lucide-react";
@@ -46,7 +46,7 @@ const Content = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-8 p-8">
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className=" grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div
             key={item}
