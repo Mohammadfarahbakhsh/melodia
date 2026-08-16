@@ -1,7 +1,7 @@
 import React from "react";
 
 type ButtonProps = {
-  variant: "contained" | "outline" | "text";
+  variant: "contained" | "outline" | "text"|"cancel";
   children?: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
@@ -70,6 +70,24 @@ const baseClasses = `
             text-[#232329]
             hover:text-[#98Ef00]
             hover:transition
+            hover:delay-75
+            ${className ?? ""}`}
+          {...rest}
+        >
+          {children}
+        </button>
+      );
+    case "cancel":
+      return (
+        <button
+          disabled={disabled}
+          className={`${baseClasses}
+            text-[#9c1128]
+            hover:text-[#cf1a23]
+            hover:transition
+            bg-[#c4000011]
+            border
+            border-red-500
             hover:delay-75
             ${className ?? ""}`}
           {...rest}

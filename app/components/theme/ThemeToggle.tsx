@@ -15,7 +15,7 @@ const ThemeToggle = () => {
     "text-zinc-500 hover:bg-zinc-100 hover:text-black dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white";
 
   return (
-    <div className="flex items-center gap-1 rounded-xl border border-zinc-200 bg-white  shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+    <div className="flex items-center gap-1 rounded-xl border p-1 border-zinc-200 bg-zinc-50 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
       <button
         onClick={() => setTheme("light")}
         className={`${base} ${theme === "light" ? active : inactive}`}
