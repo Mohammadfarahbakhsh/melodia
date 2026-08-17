@@ -13,7 +13,7 @@ const Landing = () => {
 
   return (
     <div
-      className= "relative min-h-screen overflow-hidden bg-[#0a0a0a] flex flex-col items-center justify-between py-14 px-6"
+      className= "relative min-h-screen overflow-hidden dark:bg-[#0a0a0a] flex flex-col items-center justify-between py-14 px-6"
     >
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-105 w-105 rounded-full bg-[#98EF00]/10 blur-[120px]" />
 
@@ -24,7 +24,7 @@ const Landing = () => {
         {Array.from({ length: 40 }).map((_, i) => (
           <span
             key={i}
-            className="w-1 rounded-t-full bg-[#98EF00] animate-eq motion-reduce:animate-none"
+            className="w-1 rounded-t-full dark:bg-[#98EF00] bg-green-800 animate-eq motion-reduce:animate-none"
             style={{
               height: `${20 + Math.abs(Math.sin(i * 0.8)) * 70}px`,
               animationDelay: `${i * 0.07}s`,
@@ -63,11 +63,11 @@ const Landing = () => {
         onClick={handleClick}
         className="
           group relative z-10 flex items-center gap-3
-          rounded-full border border-[#6AA300] bg-zinc-950/80
+          rounded-full border border-[#6AA300] dark:bg-zinc-950/80
           px-9 py-4 text-lg font-semibold text-[#98EF00]
           shadow-[0_0_25px_rgba(152,239,0,0.15)]
           backdrop-blur transition-all duration-300
-          hover:border-[#98EF00] hover:bg-zinc-900
+          hover:border-[#98EF00] dark:hover:bg-zinc-900
           hover:shadow-[0_0_35px_rgba(152,239,0,0.3)] hover:scale-[1.03]
           active:scale-95 focus-visible:outline-2
           focus-visible:outline-offset-2 focus-visible:outline-[#98EF00]
