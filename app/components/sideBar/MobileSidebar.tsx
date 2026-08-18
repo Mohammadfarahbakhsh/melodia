@@ -1,21 +1,31 @@
 "use client"
 import { Home, Library, Menu, Search, Users } from 'lucide-react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 
+function useMounted() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
+
 const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false);
+  const mounted = useMounted();
+
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = 'unset';
     }
     return () => {
       document.body.style.overflow = 'unset';
-    }
-
+    };
   }, [isOpen]);
+
   const sidebarContent = (
     <>
       {isOpen && (
@@ -24,24 +34,19 @@ const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
           onClick={() => setIsOpen(false)}
         />
       )}
-
-      {/* خود سایدبار */}
-
-      {/* دکمه همبرگری (وقتی منو بسته است) */}
       {!isOpen && (
         <Menu
           onClick={() => setIsOpen(true)}
-          className="fixed top-7 w-7 h-7 right-6 z-30 p-2 bg-neutral-900 text-white rounded-md md:hidden"
+          className="fixed top-[14px] w-7 h-7 right-6 z-30 p-2 bg-neutral-900 text-[#98EF00] rounded-md md:hidden"
         >
           ☰ منو
         </Menu>
-
       )}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-neutral-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-neutral-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-
         <div className="p-4">
           <button
             onClick={() => setIsOpen(false)}
@@ -49,19 +54,14 @@ const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
           >
             ✕
           </button>
-          <nav className="flex flex-col gap-4">
-            {children}
-          </nav>
+          <nav className="flex flex-col gap-4">{children}</nav>
         </div>
       </div>
-
     </>
   );
 
-  // استفاده از پورتال برای رندر کردن در body و جلوگیری از مشکل z-index
-  if (typeof window === 'undefined') return null;
+  if (!mounted) return null;
   return createPortal(sidebarContent, document.body);
-}
-
+};
 
 export default MobileSidebar;

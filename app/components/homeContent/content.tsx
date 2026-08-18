@@ -2,7 +2,7 @@
 import Button from "@/app/components/base/buttons/button";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Library } from "lucide-react";
+import { HardHat, Heart, Library } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 const Content = () => {
@@ -72,10 +72,14 @@ const Content = () => {
           >
             <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#98EF00]/30 blur-2xl transition-all group-hover:bg-[#98EF00]/20" />
 
-            <div className="flex justify-end">
-              <div className="rounded-xl bg-blue-500/10 p-3 text-[#98EF00]">
+            <div className="flex justify-between">
+                <div className="rounded-xl  bg-blue-500/10 p-3 text-[#98EF00]">
+                  <Heart/>
+                </div>
+              <div className="rounded-xl  bg-blue-500/10 p-3 text-[#98EF00]">
                 <Library size={22} />
               </div>
+              
             </div>
 
             <div className="mt-5 flex flex-col items-center text-center">

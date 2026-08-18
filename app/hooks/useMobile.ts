@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 export function useMobile(breakpoint: number = 768): boolean {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  useCallback(() => {
+  useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const checkMobile = (): void => {
