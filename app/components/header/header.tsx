@@ -64,7 +64,6 @@ const Header = () => {
   return (
     <div className="relative">
       <div className="relative flex justify-between items-center gap-3 md:gap-5 px-3 sm:px-5 md:px-8 py-3 md:py-5 backdrop-blur-md">
-        {/* دسکتاپ نویگیشن */}
         <div className="hidden md:flex items-center gap-5 order-1">
           {!isLogin ? (
             <Link href="/auth">

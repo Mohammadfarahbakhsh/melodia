@@ -6,9 +6,9 @@ import { Plus } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="pl-5 pr-5">
+    <div className="pl-5 pt-7 pr-5">
       <div className="h-px  w-full bg-linear-to-r from-transparent via-[#98EF00] to-transparent" />
-        <div className="flex p-5 items-center justify-end pt-5 gap-5">
+        <div className="flex p-7 items-center justify-end  gap-5">
           <Link href="/Info">
             <h2> درباره ما</h2>
           </Link>
