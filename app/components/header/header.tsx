@@ -7,7 +7,7 @@ import Image from "next/image";
 import MobileSidebar from "../sideBar/MobileSidebar";
 import Card from "../card/card";
 import { createPortal } from "react-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const MobileNavItem = ({
@@ -58,12 +58,33 @@ const Header = () => {
   const isMobile = useMobile();
   const isLogin: boolean = false;
   const [showCard, setShowCard] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const HandelOpenCard = useCallback(() => setShowCard(true), []);
   const HandelCloseCard = useCallback(() => setShowCard(false), []);
 
+  // تشخیص اسکرول برای فعال شدن حالت بلور
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    handleScroll(); // بررسی مقدار اولیه (مثلا رفرش وسط صفحه)
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="relative">
-      <div className="relative flex justify-between items-center gap-3 md:gap-5 px-3 sm:px-5 md:px-8 py-3 md:py-5 backdrop-blur-md">
+    // sticky باعث می‌شه هدر حین اسکرول در جای خودش (بالای صفحه) ثابت بمونه
+    <div className="sticky top-0 z-50 w-full">
+      <div
+        className={`relative flex justify-between items-center gap-3 md:gap-5 px-3 sm:px-5 md:px-8 py-3 md:py-5 transition-all duration-300 ease-out ${
+          isScrolled
+            ? "backdrop-blur-xl bg-black/50 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            : "backdrop-blur-md bg-transparent"
+        }`}
+      >
         <div className="hidden md:flex items-center gap-5 order-1">
           {!isLogin ? (
             <Link href="/auth">
@@ -132,7 +153,7 @@ const Header = () => {
               width={40}
               height={40}
               alt="لوگوی ملودیا"
-              className="w-8 h-8 sm:w-9 sm:h-9"
+              className=" w-8 h-8 sm:w-9 sm:h-9"
             />
           </Link>
         </div>
@@ -155,7 +176,6 @@ const Header = () => {
                 <MobileNavItem href="/library" label="کتابخانه/پادکست" icon={<Library size={19} />} />
               </div>
 
-              {/* جداکننده */}
               <div className="mx-4 my-4 h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
 
               {/* بخش پایینی: ورود + افزودن */}

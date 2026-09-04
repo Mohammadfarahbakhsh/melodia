@@ -9,7 +9,7 @@ const Options = () => {
 
     return (
         <div className='w-full overflow-x-auto overflow-y-hidden scrollbar-hide'>
-            <div className='flex justify-center md:justify-end items-center gap-2 md:gap-4 lg:gap-6 px-2 md:px-6 py-2 md:py-4 min-w-max'>
+            <div className='flex justify-center md:justify-end items-center gap-2 md:gap-4 lg:gap-6 px-2 md:px-6 py-4 md:py-4 min-w-max'>
                 {options.map((option) => (
                     <button
                         key={option.id}

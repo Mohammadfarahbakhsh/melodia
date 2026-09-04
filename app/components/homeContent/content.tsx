@@ -52,7 +52,7 @@ const Content = () => {
           <div
             key={item}
             className="
-              group relative flex flex-col gap-2 overflow-hidden rounded-2xl
+              group relative flex flex-col gap-8 overflow-hidden rounded-2xl
               border border-zinc-200/60 bg-white/70 p-4 shadow-sm backdrop-blur
               transition-all duration-300 hover:-translate-y-1
               hover:border-[#98EF00] hover:shadow-xl
@@ -70,7 +70,7 @@ const Content = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 text-center">
+            <div className="flex flex-col items-center gap-2 text-center">
               <Image
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6pc0RyGyFThsT5Oo_NdtxU6KBzZNSEj3qNdpxGXkZaQ&s=10"
                 width={80}

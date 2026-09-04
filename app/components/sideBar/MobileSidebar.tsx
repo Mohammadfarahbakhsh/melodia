@@ -1,6 +1,6 @@
 "use client"
-import { Home, Library, Menu, Search, Users } from 'lucide-react';
-import React, { useEffect, useState, useSyncExternalStore } from 'react';
+import { Menu} from 'lucide-react';
+import React, { useEffect, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 
 function useMounted() {
@@ -30,14 +30,14 @@ const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity"
+          className="fixed inset-0 bg-black/50 z-30 transition-opacity"
           onClick={() => setIsOpen(false)}
         />
       )}
       {!isOpen && (
         <Menu
           onClick={() => setIsOpen(true)}
-          className="fixed top-[14px] w-7 h-7 right-6 z-30 p-2 bg-neutral-900 text-[#98EF00] rounded-md md:hidden"
+          className="fixed top-3.5 w-7 h-7 right-6 z-999 p-2 bg-neutral-900 text-[#98EF00] rounded-md md:hidden"
         >
           ☰ منو
         </Menu>
