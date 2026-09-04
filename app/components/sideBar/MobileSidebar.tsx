@@ -37,20 +37,20 @@ const MobileSidebar = ({ children }: { children: React.ReactNode }) => {
       {!isOpen && (
         <Menu
           onClick={() => setIsOpen(true)}
-          className="fixed top-3.5 w-7 h-7 right-6 z-999 p-2 bg-neutral-900 text-[#98EF00] rounded-md md:hidden"
+          className="fixed top-3.5 w-7 h-7 right-6 z-999 p-2 bg-[#98EF00] text-[#000000] dark:bg-[#98EF00] rounded-md md:hidden"
         >
           ☰ منو
         </Menu>
       )}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-neutral-900 shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-200 dark:bg-neutral-900 shadow-xl z-999 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="p-4">
           <button
             onClick={() => setIsOpen(false)}
-            className="mb-4 text-white hover:text-gray-200"
+            className="mb-4 text-black dark:text-white hover:text-gray-200"
           >
             ✕
           </button>

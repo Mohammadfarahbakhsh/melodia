@@ -28,14 +28,14 @@ const MobileNavItem = ({
         className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-300 group active:scale-[0.98] ${
           isActive
             ? "bg-[#98EF00]/10 shadow-[0_0_20px_rgba(152,239,0,0.15)]"
-            : "hover:bg-white/5"
+            : "hover:bg-black/5 dark:hover:bg-white/5"
         }`}
       >
         <div
           className={`w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 shrink-0 ${
             isActive
               ? "bg-[#98EF00] text-black"
-              : "bg-white/5 text-white/50 group-hover:bg-[#98EF00]/10 group-hover:text-[#98EF00]"
+              : "bg-black/5 dark:bg-white/5 text-black/60 dark:text-white/50 group-hover:bg-[#98EF00]/10 group-hover:text-[#98EF00]"
           }`}
         >
           {icon}
@@ -44,7 +44,7 @@ const MobileNavItem = ({
           className={`text-[15px] font-medium transition-colors duration-300 ${
             isActive
               ? "text-[#98EF00]"
-              : "text-white/70 group-hover:text-white"
+              : "text-black/80 dark:text-white/70 group-hover:text-[#98EF00] dark:group-hover:text-white"
           }`}
         >
           {label}
@@ -81,7 +81,7 @@ const Header = () => {
       <div
         className={`relative flex justify-between items-center gap-3 md:gap-5 px-3 sm:px-5 md:px-8 py-3 md:py-5 transition-all duration-300 ease-out ${
           isScrolled
-            ? "backdrop-blur-xl bg-black/50 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            ? "backdrop-blur-xl bg-[#655c5c11] shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
             : "backdrop-blur-md bg-transparent"
         }`}
       >
@@ -164,7 +164,7 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* هدر منو */}
               <div className="px-4 pb-4 mb-2 border-b border-white/5">
-                <p className="text-[#98EF00]/60 text-xs tracking-widest uppercase font-medium">
+                <p className="text-[#98EF00]/60 text-xs tracking-widest uppercase font-bold">
                   منو
                 </p>
               </div>
@@ -173,7 +173,7 @@ const Header = () => {
               <div className="flex flex-col gap-1 px-3">
                 <MobileNavItem href="/" label="خانه" icon={<Home size={19} />} />
                 <MobileNavItem href="/search" label="سرچ" icon={<Search size={19} />} />
-                <MobileNavItem href="/library" label="کتابخانه/پادکست" icon={<Library size={19} />} />
+                <MobileNavItem  href="/library" label="کتابخانه/پادکست" icon={<Library size={19} />} />
               </div>
 
               <div className="mx-4 my-4 h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
@@ -182,7 +182,7 @@ const Header = () => {
               <div className="flex flex-col gap-3 px-4 mt-auto pb-4">
                 {!isLogin && (
                   <Link href="/auth" className="block">
-                    <div className="flex items-center justify-center gap-2 py-3 rounded-2xl border border-[#98EF00]/30 text-[#98EF00] font-medium text-sm transition-all duration-300 hover:bg-[#98EF00]/10 active:scale-[0.98]">
+                    <div className="flex items-center justify-center gap-2 py-3 rounded-2xl border border-[#98EF00] dark:border-[#98EF00]/30 text-[#98EF00] font-medium text-sm transition-all duration-300 hover:bg-[#98EF00]/10 active:scale-[0.98]">
                       <LogIn size={17} />
                       ورود به حساب
                     </div>
