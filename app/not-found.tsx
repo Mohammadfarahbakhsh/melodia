@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "./components/base/buttons/button";
+import Button from "../components/base/buttons/button";
 
 export default function NotFound() {
   return (
@@ -16,9 +16,14 @@ export default function NotFound() {
           ۴۰۴
         </h1>
 
-        <div className="my-6 h-px w-16 bg-[#5c8a00]/30 dark:bg-[#98EF00]/30" aria-hidden="true" />
+        <div
+          className="my-6 h-px w-16 bg-[#5c8a00]/30 dark:bg-[#98EF00]/30"
+          aria-hidden="true"
+        />
 
-        <p className="text-lg text-[#4a7000] dark:text-[#98EF00]/90">صفحه مورد نظر یافت نشد</p>
+        <p className="text-lg text-[#4a7000] dark:text-[#98EF00]/90">
+          صفحه مورد نظر یافت نشد
+        </p>
         <p className="mt-2 max-w-sm text-sm text-zinc-500 dark:text-[#98EF00]/50">
           ممکن است آدرس را اشتباه وارد کرده باشید یا این صفحه حذف شده باشد
         </p>

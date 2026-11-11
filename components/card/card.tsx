@@ -35,7 +35,7 @@ const Card = () => {
               className="h-6 w-6 text-[#6AA300] transition-transform duration-200 group-hover:scale-110"
               strokeWidth={1.75}
             />
-              <span className="text-sm font-medium text-[#6AA300]">
+              <span className="text-sm whitespace-nowrap font-medium text-[#6AA300]">
                 اضافه کردن پادکست
               </span>
           </button>

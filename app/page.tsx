@@ -1,11 +1,10 @@
+import Landing from "../components/landing/landing";
 
-import Landing from "./components/landing/landing";
-
-const Page = () =>{
-  return (<div>
-    <Landing/>
-  </div>
-
+const Page = () => {
+  return (
+    <div>
+      <Landing />
+    </div>
   );
 };
 
